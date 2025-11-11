@@ -17,6 +17,8 @@ git clone https://github.com/valentinatessarounitn/moodle-local_questionnaire_re
 
 Esegui l'aggiornamento del database da `/admin/index.php`
 
+NB. A volte può essere utile lanciare il comando `php admin/cli/purge_caches.php`
+
 Configura il task pianificato in Amministrazione del sito → Server → Elaborazioni pianificate.
 
 Di default si attiva giornalmente alle 3 di notte ma su `admin/tool/task/scheduledtasks.php?action=edit&task=local_questionnaire_reminder%5Ctask%5Csend_reminders` è possibile modificare la data di elaborazione.
