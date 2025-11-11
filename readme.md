@@ -15,9 +15,11 @@ Copia la cartella local/questionnaire_reminder nella directory local/ del tuo si
 git clone https://github.com/valentinatessarounitn/moodle-local_questionnaire_reminder.git questionnaire_reminder
 ```
 
-Esegui l'aggiornamento del database da /admin/index.php
+Esegui l'aggiornamento del database da `/admin/index.php`
 
-Configura il task pianificato in Amministrazione del sito → Server → Tasks pianificati
+Configura il task pianificato in Amministrazione del sito → Server → Elaborazioni pianificate.
+
+Di default si attiva giornalmente alle 3 di notte ma su `admin/tool/task/scheduledtasks.php?action=edit&task=local_questionnaire_reminder%5Ctask%5Csend_reminders` è possibile modificare la data di elaborazione.
 
 ## 🛠️ Script CLI
 Il plugin include uno script CLI che può essere eseguito manualmente o tramite task:
