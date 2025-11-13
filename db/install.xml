@@ -6,6 +6,10 @@
                 <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
                 <FIELD NAME="logdate" TYPE="int" LENGTH="10" NOTNULL="true" COMMENT="UNIX timestamp"/>
                 <FIELD NAME="message" TYPE="text" NOTNULL="true" COMMENT="Log message"/>
+                <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="false" COMMENT="User ID"/>
+                <FIELD NAME="courseid" TYPE="int" LENGTH="10" NOTNULL="false" COMMENT="Course ID"/>
+                <FIELD NAME="reminderstage" TYPE="text" LENGTH="9" NOTNULL="false" COMMENT="Stage of reminder: default, finecorso or postcorso"/>
+                <FIELD NAME="deliverysuccess" TYPE="int" LENGTH="1" NOTNULL="false" COMMENT="True if delivery was successful, false or null otherwise"/>
             </FIELDS>
             <KEYS>
                 <KEY NAME="primary" TYPE="primary" FIELDS="id"/>

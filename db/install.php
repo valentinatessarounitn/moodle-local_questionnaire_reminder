@@ -39,6 +39,11 @@ function xmldb_local_questionnaire_reminder_install() {
     $table->add_field('id', XMLDB_TYPE_INTEGER, '10', null, XMLDB_NOTNULL, XMLDB_SEQUENCE, null);
     $table->add_field('logdate', XMLDB_TYPE_INTEGER, '10', null, XMLDB_NOTNULL, null, null);
     $table->add_field('message', XMLDB_TYPE_TEXT, null, null, XMLDB_NOTNULL, null, null);
+    $table->add_field('userid', XMLDB_TYPE_INTEGER, '10', null, null, null, '0');
+    $table->add_field('courseid', XMLDB_TYPE_INTEGER, '10', null, null, null, '0');
+    $table->add_field('reminderstage', XMLDB_TYPE_TEXT, '2', null, null, null, null);
+    $table->add_field('deliverysuccess', XMLDB_TYPE_INTEGER, '1', null, null, null, null);
+
     
     // Add primary key.
     $table->add_key('primary', XMLDB_KEY_PRIMARY, ['id']);

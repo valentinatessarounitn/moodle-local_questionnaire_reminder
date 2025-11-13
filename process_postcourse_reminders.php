@@ -45,14 +45,14 @@ function process_postcourse_reminders(): void {
         $questionnaire = local_questionnaire_reminder_get_questionnaire_for_course($course->id, true);
         
         if (!$questionnaire) {
-            log::trace("❌ Nessun questionario visibile trovato nel corso {$course->id}, salto.");
+            log::trace("❌ Nessun questionario visibile trovato nel corso {$course->id}, salto.", $course->id);
             continue;
         }
         
         // Recupera il modulo attività
         $cm = get_coursemodule_from_instance('questionnaire', $questionnaire->instance);
         if (!$cm) {
-            log::trace("⚠️ Impossibile recuperare il coursemodule per il questionario {$questionnaire->instance}, salto.");
+            log::trace("⚠️ Impossibile recuperare il coursemodule per il questionario {$questionnaire->instance}, salto.", $course->id);
             continue;
         }
         
@@ -60,14 +60,14 @@ function process_postcourse_reminders(): void {
         $currentgroup = groups_get_activity_group($cm, true);
         $incompleteusers = local_questionnaire_reminder_questionnaire_get_users_without_responses($course->id, $questionnaire->instance, $currentgroup);
         
-        log::trace("📅 Invio sollecito post-corso per {$course->fullname} a " . count($incompleteusers) . " utenti");
+        log::trace("📅 Invio sollecito post-corso per {$course->fullname} a " . count($incompleteusers) . " utenti", $course->id);
         
         foreach ($incompleteusers as $user) {
-            log::trace("📧 Tentato invio messaggio a {$user->firstname} {$user->lastname} ({$user->email})");
+            log::trace("📧 Tentato invio messaggio a {$user->firstname} {$user->lastname} ({$user->email})", $course->id, $user->id, 'postcorso');
             local_questionnaire_reminder_send_reminder_message($user, $course, $questionnaire, 'postcorso');
         }
         
-        log::trace("✔️ Completato l'invio per il corso {$course->fullname} (ID {$course->id})");
+        log::trace("✔️ Completato l'invio per il corso {$course->fullname} (ID {$course->id})", $course->id);
     }
     
     log::trace("=== Fine esecuzione sollecito post-corso ===");

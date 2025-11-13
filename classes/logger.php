@@ -54,12 +54,29 @@ class logger {
     *
     * @param string $message Il messaggio da registrare.
     */
-    public static function trace(string $message): void {
+    public static function trace(string $message,$courseid = null,$userid = null, $reminderstage = null, $deliverysuccess = null): void {
         global $DB;
+        
+        // Validazione reminderstage.
+        if (!is_null($reminderstage) && !in_array($reminderstage, ['default', 'finecorso','postcorso'], true)) {
+            self::trace('Insert fallito: Valore reminderstage non valido: deve essere default, finecorso o postcorso. Messaggio originale: ' . $message);
+            return;
+        }
+        
+        // Validazione deliverysuccess (true/false/null).
+        if (!is_null($deliverysuccess) && !is_bool($deliverysuccess)) {
+            self::trace('Insert fallito: Valore deliverysuccess non valido: deve essere true, false o null. Messaggio originale: ' . $message);
+            return;
+        }
         
         $record = new \stdClass();
         $record->logdate = time();
+        $record->userid = $userid;
+        $record->courseid = $courseid;
         $record->message = $message;
+        $record->reminderstage = $reminderstage;
+        // Salviamo deliverysuccess come intero (1 = true, 0 = false, null = non definito).
+        $record->deliverysuccess = is_null($deliverysuccess) ? null : ($deliverysuccess ? 1 : 0);
         
         $DB->insert_record('local_questionnaire_reminder_log', $record);
         
