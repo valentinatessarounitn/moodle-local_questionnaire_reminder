@@ -9,10 +9,10 @@ local_questionnaire_reminder è un plugin locale per Moodle che automatizza l'in
 
 
 ## ⚙️ Installazione
-Copia la cartella local/questionnaire_reminder nella directory local/ del tuo sito Moodle
+Estrai la cartella local/questionnaire_reminder nella directory root del tuo sito Moodle
 
 ```bash
-git clone https://github.com/valentinatessarounitn/moodle-local_questionnaire_reminder.git questionnaire_reminder
+git clone https://github.com/valentinatessarounitn/moodle-local_questionnaire_reminder.git local/questionnaire_reminder
 ```
 
 Esegui l'aggiornamento del database da `/admin/index.php`
