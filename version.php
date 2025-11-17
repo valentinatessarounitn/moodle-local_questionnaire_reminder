@@ -25,7 +25,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'local_questionnaire_reminder';
-$plugin->release = '0.0.1';
-$plugin->version = 2025111101;
+$plugin->release = '0.0.2';
+$plugin->version = 2025111102;
 $plugin->requires = 2022112800; // 4.1.0 LTS
 $plugin->maturity = MATURITY_BETA;
