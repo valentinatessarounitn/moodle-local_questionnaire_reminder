@@ -33,7 +33,7 @@ function xmldb_local_questionnaire_reminder_install() {
     global $DB;
     
     // Define table structure.
-    $table = new xmldb_table('local_questionnaire_reminder_log');
+    $table = new xmldb_table('local_questionnaire_reminder');
     
     // Add fields.
     $table->add_field('id', XMLDB_TYPE_INTEGER, '10', null, XMLDB_NOTNULL, XMLDB_SEQUENCE, null);

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <XMLDB PATH="local/questionnaire_reminder/db" VERSION="2025101500" COMMENT="Install XML for questionnaire reminder plugin" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../lib/xmldb/xmldb.xsd">
     <TABLES>
-        <TABLE NAME="local_questionnaire_reminder_log" COMMENT="Log of questionnaire reminders">
+        <TABLE NAME="local_questionnaire_reminder" COMMENT="Log of questionnaire reminders">
             <FIELDS>
                 <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
                 <FIELD NAME="logdate" TYPE="int" LENGTH="10" NOTNULL="true" COMMENT="UNIX timestamp"/>

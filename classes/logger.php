@@ -78,7 +78,7 @@ class logger {
         // Salviamo deliverysuccess come intero (1 = true, 0 = false, null = non definito).
         $record->deliverysuccess = is_null($deliverysuccess) ? null : ($deliverysuccess ? 1 : 0);
         
-        $DB->insert_record('local_questionnaire_reminder_log', $record);
+        $DB->insert_record('local_questionnaire_reminder', $record);
         
         if (!self::$muted) {
             mtrace("[" . date('Y-m-d H:i:s') . "] " . $message);
