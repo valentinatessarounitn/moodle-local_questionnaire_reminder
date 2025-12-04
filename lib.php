@@ -137,9 +137,11 @@ function local_questionnaire_reminder_send_reminder_message($user, $course, $que
 function local_questionnaire_reminder_questionnaire_get_users_without_responses(int $courseid, int $questionnaireid, int $groupid = 0): array {
     global $DB;
     
+    // First get all users who can complete this questionnaire
+    $cap = 'mod/questionnaire:submit';
     $context = context_course::instance($courseid);
-    $users = get_enrolled_users($context, '', $groupid);
-    
+    $users = get_enrolled_users($context, $cap, $groupid);
+
     // Ottieni solo le risposte complete associate al questionario
     $responses = $DB->get_records('questionnaire_response', [
         'questionnaireid' => $questionnaireid,
